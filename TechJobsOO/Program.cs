@@ -18,6 +18,9 @@ namespace TechJobsOO
             jobs.Add(job2);
             jobs.Add(job3);
 
+            string str = job1.ToString();
+
+
             foreach (Job job in jobs)
             {
                 Console.WriteLine(job);

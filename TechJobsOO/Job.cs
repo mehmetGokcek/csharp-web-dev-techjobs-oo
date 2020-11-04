@@ -1,10 +1,9 @@
 ﻿using System;
 namespace TechJobsOO
 {
-    public class Job
+    public class Job : JobField
     {
-        public int Id { get; }
-        private static int nextId = 1;
+        public static int nextID = 1;
 
         public string Name { get; set; }
         public Employer EmployerName { get; set; }
@@ -16,8 +15,8 @@ namespace TechJobsOO
 
         public Job()
         {
-            Id = nextId;
-            nextId++;
+            Id = nextID;
+            nextID++;
         }
 
         public Job(string name, Employer employerName, Location employerLocation, PositionType jobType, CoreCompetency jobCoreCompetency) : this()
@@ -30,27 +29,24 @@ namespace TechJobsOO
         }
 
 
-
-        // TODO: Generate Equals() and GetHashCode() methods.
-        public override bool Equals(object obj)
-        {
-            return obj is Job job &&
-                   Id == job.Id;
-        }
-
-        public override int GetHashCode()
-        {
-            return HashCode.Combine(Id);
-        }
-
         public override string ToString()
         {
-            return $"ID: {Id}\n" +
-                   $"Name: {Name}\n" +
-                   $"Employer: {EmployerName}\n" +
-                   $"Location: {EmployerLocation}\n" +
-                   $"Position Type: {JobType}\n" +
-                   $"Core Competency: {JobCoreCompetency}\n";
+            if (Name == null && EmployerName == null && EmployerLocation == null &&
+                JobType == null && JobCoreCompetency == null)
+            {
+                return "OOPS! This job does not seem to exist.";
+            }
+
+            else
+            {
+                return $"ID: {Id}\n" +
+                       $"Name: {Name}\n" +
+                       $"Employer: {EmployerName}\n" +
+                       $"Location: {EmployerLocation}\n" +
+                       $"Position Type: {JobType}\n" +
+                       $"Core Competency: {JobCoreCompetency}\n";
+            }
         }
+
     }
 }
