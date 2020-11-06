@@ -2,6 +2,7 @@
 {
     public class Employer : JobField
     {
-        public Employer(string value) : base(value) {}   
+        public Employer(string value) : base(value) { }
     }
+
 }

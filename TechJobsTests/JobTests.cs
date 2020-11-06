@@ -65,17 +65,17 @@ namespace TechJobsTests
         [TestMethod]
         public void ToStringLabelData()
         {
-            Job job9 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+            Job job = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
 
 
-            string Expected = "ID: 9\n" +
+            string Expected = $"ID: {job.Id}\n" +
                               "Name: Product tester\n" +
                               "Employer: ACME\n" +
                               "Location: Desert\n" +
                               "Position Type: Quality control\n" +
                               "Core Competency: Persistence\n";
 
-            Assert.AreEqual(Expected, job9.ToString());
+            Assert.AreEqual(Expected, job.ToString());
         }
 
 
@@ -83,17 +83,17 @@ namespace TechJobsTests
         [TestMethod]
         public void ToStringEmptyField()
         {
-            Job job7 = new Job("Product tester", new Employer(""), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+            Job job = new Job("Product tester", new Employer(""), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
 
 
-            string ExpectedString = "ID: 7\n" +
-                              "Name: Product tester\n" +
-                              "Employer: Data not available\n" +
-                              "Location: Desert\n" +
-                              "Position Type: Quality control\n" +
-                              "Core Competency: Persistence\n";
+            string ExpectedString =   $"ID: {job.Id}\n" +
+                                      "Name: Product tester\n" +
+                                      "Employer: Data not available\n" +
+                                      "Location: Desert\n" +
+                                      "Position Type: Quality control\n" +
+                                      "Core Competency: Persistence\n";
 
-            Assert.AreEqual(ExpectedString, job7.ToString());
+            Assert.AreEqual(ExpectedString, job.ToString());
         }
 
 
